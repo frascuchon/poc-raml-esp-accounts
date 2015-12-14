@@ -32,7 +32,7 @@ securedBy: [x-access-token]
 /accounts:
   is: [
     searchable: {
-      description: "with valid searchable fields: IBAN, balance, description",
+      description: "with valid searchable fields: CCC, balance, description",
       example: "[{\"publicId\", \"0182\", \"like\"},{\"balance\", 1000.0, \"gte\"}]"
     },
     orderable: {
@@ -48,3 +48,12 @@ securedBy: [x-access-token]
     type:
       readOnlyCollection-item:
         exampleItem: !include examples/account.json
+    post:
+      body:
+        application/json:
+          schema: account
+      responses:
+        201:
+          body:
+            application/json:
+              schema: responseMessage
